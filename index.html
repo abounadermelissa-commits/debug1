@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buggy Example</title>  <!-- the title above near the favicon -->
+<style>
+body {
+background-color: lightblue; /*sets the background color of the body selector to lightblue*/
+}
+
+#box {
+position: relative;  /* I sat a position to be able later in the code to move it to the left*/
+width: 100px;
+height: 100px;
+background: red;  /*changes its background to the color red*/
+}
+
+</style>
+</head>
+<body>
+
+<h1>Bug Practice</h1>  <!-- heading -->
+
+<input id="nameInput" type="text">  <!-- an input to be able to enter characters later saved in js from the id nameInput -->
+<button onclick="start()">Start</button>  <!-- a start button with an onclick(), kind of the same thing as using addEventListener -->
+
+<div id="box"></div>  <!--the box we styled in css-->
+
+<script>  /*interal JS*/
+counter = 0;  //variable counter and set it's value to 0//
+let input = document.getElementById("nameInput")  //defined input by it's id in html//
+let box = document.getElementById("box") ///defined box by it's id//
+
+function start() {  //created a function//
+console.log(input.value);  //the consol will show the input(we put .value not .innerHTML beacuse it's an input not a paragraph or heading//
+
+interval = setInterval(function () {
+counter++;  //each iteration will cause the counter to add 1//
+box.style.backgroundColor = "yellow";  //changes the background color of the box to yellow//
+box.style.left = counter + "px";  //we are moving the box to 1 more px each iteration but because its so fast we can't see the box slowly unless we put a delay//
+if (counter == 10){  //condition for when the counter eraches to 10//
+    clearInterval(interval)  //clearing the interval to stop the iteration//
+}
+});
+}
+</script>
+
+</body>
+</html>
